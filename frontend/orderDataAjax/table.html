@@ -1,0 +1,28 @@
+Sortable action
+<span class="btn pull-right" data-sortable="#ytcat-table" data-active="0" data-action="script_for_sort.php">
+        <span class="icon-move"></span>
+        Ordonner
+</span>
+
+Sortable target
+<table id="table" class="table table-bordered" data-src="script_for_object.php">
+    <tr class="item" data-id="27" data-order="1">
+        <td class="value">
+            Name
+        </td>
+        <td class="action">
+            <span class="icon-trash" data-delete="27" title="Supprimer"></span>
+        </td>
+    </tr>
+    <tr class="item" data-id="12" data-order="1">
+        <td class="value">
+            Nom
+        </td>
+        <td class="action">
+            <span class="icon-trash" data-delete="12" title="Supprimer"></span>
+        </td>
+    </tr>
+</table>
+<script type="text/javascript">
+    dataSortable();
+</script>
