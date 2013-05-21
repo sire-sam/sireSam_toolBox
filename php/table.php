@@ -135,7 +135,7 @@ class makeHtml
 }
 
 $pattern = array(
-    'id_ytcat' => array(
+    'id_sqlCol' => array(
         'label' => 'id',
         'display' => 'value',
         'class' =>  'mini'
@@ -145,13 +145,13 @@ $pattern = array(
         'display' => 'value',
         'class' =>  'mini'
     ),
-    'name_ytcat' => array(
+    'name_sqlCol' => array(
         'label' => 'Nom',
         'display' => 'value',
         'class' =>  'auto',
         'search'    =>  'input-large pull-right'
     ),
-    'content_ytcat' => array(
+    'content_sqlCol' => array(
         'label' => 'Contenus',
         'display' => 'check',
         'class' =>  'small'
@@ -163,11 +163,11 @@ $pattern = array(
     )
 );
 $conf   =   array(
-    'script'    =>  '/admin/plugins.php?name=ytsheets&section=category',
+    'script'    =>  'script_to_object.php',
     'edit'  =>  true,
     'delete' =>  'no-link',
     'container' =>  false,
-    'relKey'    =>  'id_ytcat'
+    'relKey'    =>  'id_sqlCol'
 );
 
 $table = makeHtml_table::table($data,$conf,$pattern);
