@@ -6,9 +6,10 @@ function dataSortable()
     $('[data-sortable]').on('click', function (event)
     {
         event.preventDefault();
-        var target =    $(this).attr('data-sortable');
-        var url    =    $(this).attr('data-action');
+        var target =    $(this).data('sortable');
+        var url    =    $(this).data('action');
         if ($(this).attr('data-active') == '0') {
+
             $(this).addClass('active')
                 .attr('data-active',1);
 
@@ -37,12 +38,13 @@ function dataSortable()
 
         } else {
             $(this).removeClass('active')
-                .attr('data-active',0);
+                .data('active',0);
+
             $(target).addClass('table-bordered')
                 .removeClass('well');
+
             $(target+' [data-search]').prop('disabled',false);
             $(target+' tbody').sortable('destroy');
-
         }
     });
 }

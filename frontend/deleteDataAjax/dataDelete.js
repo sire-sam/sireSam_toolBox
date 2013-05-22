@@ -6,8 +6,8 @@ function dataDelete (target) {
     $(target).on('click','[data-delete]',function(event)
     {
         event.preventDefault();
-        var url     =   $(target).attr('data-src');
-        var data    =   {id: $(this).attr('data-delete')};
+        var url     =   $(target).data('src');
+        var post    =   {id: $(this).data('delete')};
         var row     =   $(this).parents('.item');
 
         var window  =   document.createElement('div');
@@ -20,9 +20,14 @@ function dataDelete (target) {
                         text: 'Supprimer',
                         click: function () {
                             $(this).dialog('close');
-                            $.post(url+'&action=delete&asynchrone=true',data).fail(function (error) {
+                            $.post(
+                                    url+'&action=delete&asynchrone=true',
+                                    post
+                                ).fail(
+                                function (error) {
                                 console.log(error);
-                            }).done(function () {
+                                }
+                            ).done(function () {
                                     $(row.children()).slideToggle(
                                         'slow',
                                         function () {
