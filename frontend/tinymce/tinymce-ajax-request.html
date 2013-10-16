@@ -1,0 +1,38 @@
+<form method="post" action="takeThis.php" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-md-3" for="richContent">
+            Wrote something :
+        </label>
+        <div class="col-md-6">
+            <textarea id="richContent" name="richContent" class="form-control jsEditor" ></textarea>
+        </div>
+    </div>
+
+</form>
+<!-- Config for tinymce 4, BBcode mode, handling content for ajax request -->
+<script type="text/javascript" src="pathTo/jquery/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var $thisForm;
+        $('form').on('submit', function (event) {
+            event.preventDefault();
+            $thisForm = $(this);
+            // do some stuff
+            // copy tynimce content into textarea (?)
+            if ($thisForm.find('.jsEditor').length) {
+                tinyMCE.triggerSave();
+            }
+            // $.ajax({method:post})
+            $.post(
+                    $thisForm.attr('action'),
+                    $thisForm.serialize()
+            );
+        });
+    });
+</script>
+<script type="text/javascript" src="/pathTo/tinymce/tinymce.min.js"></script>
+<script type="text/javascript">
+    tinymce.init({
+        selector: ".jsEditor"
+    });
+</script>
